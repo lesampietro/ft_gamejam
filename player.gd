@@ -18,4 +18,9 @@ func _process(delta: float) -> void:
 		
 	if velocity.x != 0:
 		$PlayerSprite.animation = "Walking"
-		
+		$PlayerSprite.flip_v = false
+		$PlayerSprite.flip_h = velocity.x < 0
+	elif velocity.y != 0:
+		$PlayerSprite.animation = "Walking"
+		$PlayerSprite.flip_v = velocity.y < 0
+			
