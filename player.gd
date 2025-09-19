@@ -7,15 +7,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right")
+	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-	if Input.is_action_pressed("move_left")
+	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-	if Input.is_action_pressed("move_up")
+	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
-	if Input.is_action_pressed("move_down")
+	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		
-	if velocity.x != 0
-		$AnimatedSprite2D = Walking
+	if velocity.x != 0:
+		$PlayerSprite.animation = "Walking"
 		
