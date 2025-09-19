@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvh46qewsk3p1"]
+[gd_scene load_steps=7 format=3 uid="uid://vxn3in1a2kdu"]
 
 [ext_resource type="Texture2D" uid="uid://b70nbgfvfcoax" path="res://Cat Sprite Sheet.png" id="1_4flbx"]
 
@@ -49,4 +49,5 @@ animations = [{
 scale = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Walking"
-frame_progress = 0.684197
+frame = 2
+frame_progress = 0.871132
