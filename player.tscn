@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvh46qewsk3p1"]
+[gd_scene load_steps=9 format=3 uid="uid://vxn3in1a2kdu"]
 
 [ext_resource type="Texture2D" uid="uid://b70nbgfvfcoax" path="res://Cat Sprite Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://y7wmuy7rm5ks" path="res://player.gd" id="1_onrkg"]
@@ -61,3 +61,5 @@ frame_progress = 0.684197
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 201)
 shape = SubResource("CapsuleShape2D_4flbx")
+frame = 2
+frame_progress = 0.871132
