@@ -14,7 +14,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 resource_local_to_scene = true
-size = Vector2(1280, 720)
+size = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
 resource_local_to_scene = true
@@ -546,6 +546,8 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Idle"
 speed_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="PinkVictim" type="CharacterBody2D" parent="."]
 script = ExtResource("10_nvl01")
