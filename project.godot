@@ -15,6 +15,11 @@ run/main_scene="uid://vxn3in1a2kdu"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [input]
 
 move_right={
