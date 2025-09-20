@@ -1,5 +1,5 @@
-extends Area2D
-@export var speed = 200
+extends CharacterBody2D
+@export var speed = 1200
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 
@@ -37,6 +37,10 @@ func check_keyboard_actions() -> Vector2:
 func playerMove(delta: float) -> void: 
 	var movement = check_keyboard_actions()
 	var movementState = "Idle" # Começa como Idle
+	if movement.length() > 0:
+		movement = movement.normalized()
+	velocity = movement * speed
+	move_and_slide()
 
 	if movement.x != 0:
 		if movement.x > 0:
@@ -55,17 +59,26 @@ func playerMove(delta: float) -> void:
 	if $PlayerSprite.animation != movementState:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
+		
+	#velocity = movementState.normalized() * speed
+	#move_and_slide()
+	#if movement.length() > 0:
+	#	position += movement.normalized() * speed * delta
+	#position.x = clamp(position.x, + 40, screen_size.x - 45)
+	#position.y = clamp(position.y, -125, screen_size.y - 225)
+	#position.x = clamp(position.x, 0, screen_size.x)
+	#position.y = clamp(position.y, 0, screen_size.y)
+	position.x = clamp(position.x, -600, screen_size.x - 680)
+	print("x max: ", screen_size.x)
+	position.y = clamp(position.y, -310, screen_size.y -410)
+	print("y max: ", screen_size.y)
 
-	if movement.length() > 0:
-		position += movement.normalized() * speed * delta
-	position.x = clamp(position.x, + 40, screen_size.x - 45)
-	position.y = clamp(position.y, -125, screen_size.y - 225)
 
 func playerActions(delta: float) -> void:
 	playerMove(delta)
 	
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	playerActions(delta)
 	
