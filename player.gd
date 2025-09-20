@@ -40,6 +40,8 @@ func playerMove(delta: float) -> void:
 			movementState = "move_right"
 		else:
 			movementState = "move_left"
+	elif movement.y != 0:
+		movementState = "move_down"
 	elif movement.length() > 0:
 		movementState = "default"
 
