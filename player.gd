@@ -1,12 +1,12 @@
 extends CharacterBody2D
-@export var speed = 1200
+@export var speed = 500
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.disabled = true
 	
 	
 func _on_body_entered(_body):
