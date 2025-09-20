@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed = 1000
+@export var speed = 200
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 
@@ -44,7 +44,10 @@ func playerMove(delta: float) -> void:
 		else:
 			movementState = "move_left"
 	elif movement.y != 0:
-		movementState = "move_down"
+		if movement.y > 0:
+			movementState = "move_down"
+		else:
+			movementState = "move_up"
 	elif movement.length() > 0:
 		movementState = "default"
 
@@ -57,8 +60,6 @@ func playerMove(delta: float) -> void:
 		position += movement.normalized() * speed * delta
 	position.x = clamp(position.x, + 40, screen_size.x - 45)
 	position.y = clamp(position.y, -125, screen_size.y - 225)
-	print("position.x: ", position.x)
-	print("position.y: ", position.y)
 
 func playerActions(delta: float) -> void:
 	playerMove(delta)
