@@ -166,3 +166,6 @@ tile_set = SubResource("TileSet_b26j0")
 
 [node name="PinkVictim" parent="." instance=ExtResource("5_2hs0m")]
 position = Vector2(355, 217)
+
+[node name="PinkVictim2" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(-290, 120)
