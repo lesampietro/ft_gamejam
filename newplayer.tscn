@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://chrar0gdp3ss0"]
+[gd_scene load_steps=47 format=3 uid="uid://chrar0gdp3ss0"]
 
 [ext_resource type="Script" uid="uid://y7wmuy7rm5ks" path="res://player.gd" id="1_c4iqc"]
 [ext_resource type="Texture2D" uid="uid://c5652bdqrug7o" path="res://imgs/idle-blob-01.png" id="2_ki1dg"]
@@ -322,6 +322,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c4iqc"]
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_c4iqc")
@@ -337,4 +339,32 @@ animation = &"Idle"
 speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
+
+[node name="PlayerGUI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerGUI"]
+modulate = Color(0.0696031, 0.694631, 0.625389, 1)
+self_modulate = Color(0, 0, 0.615686, 1)
+material = SubResource("CanvasItemMaterial_c4iqc")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -38.0
+offset_right = 199.0
+offset_bottom = -11.0
+grow_vertical = 0
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerGUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -63.0
+offset_right = 47.0
+offset_bottom = -40.0
+grow_vertical = 0
+text = "Vida"
