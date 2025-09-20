@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
+resource_local_to_scene = true
 size = Vector2(1280, 720)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
-size = Vector2(1280, 720)
+resource_local_to_scene = true
+size = Vector2(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pylmc"]
 texture = ExtResource("6_606se")
@@ -326,41 +328,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_7lmhl")
 }, {
 "duration": 1.0,
@@ -567,6 +534,7 @@ tile_map_data = PackedByteArray("AAD2//r/BQAAAAAAAAD2//v/BQAAAAAAAAD2//z/BQAAAAA
 tile_set = SubResource("TileSet_b26j0")
 
 [node name="Player purple" type="CharacterBody2D" parent="."]
+motion_mode = 1
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player purple"]
@@ -575,6 +543,7 @@ shape = SubResource("RectangleShape2D_1jxqw")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Player purple"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"Idle"
 speed_scale = 2.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

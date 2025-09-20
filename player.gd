@@ -23,7 +23,6 @@ func _ready() -> void:
 	
 func check_keyboard_actions() -> Vector2:
 	var velocity = Vector2.ZERO
-	print("LOG: velocity: ", velocity)
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -41,7 +40,7 @@ func playerMove(delta: float) -> void:
 		movement = movement.normalized()
 	velocity = movement * speed
 	move_and_slide()
-
+	
 	if movement.x != 0:
 		if movement.x > 0:
 			movementState = "move_right"
@@ -60,19 +59,9 @@ func playerMove(delta: float) -> void:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
 		
-	#velocity = movementState.normalized() * speed
-	#move_and_slide()
-	#if movement.length() > 0:
-	#	position += movement.normalized() * speed * delta
-	#position.x = clamp(position.x, + 40, screen_size.x - 45)
-	#position.y = clamp(position.y, -125, screen_size.y - 225)
-	#position.x = clamp(position.x, 0, screen_size.x)
-	#position.y = clamp(position.y, 0, screen_size.y)
-	position.x = clamp(position.x, -600, screen_size.x - 680)
-	print("x max: ", screen_size.x)
-	position.y = clamp(position.y, -310, screen_size.y -410)
-	print("y max: ", screen_size.y)
-
+	var playerSize = 50
+	global_position.x = clamp(global_position.x, playerSize, screen_size.x - playerSize)
+	global_position.y = clamp(global_position.y, playerSize, screen_size.y - playerSize)
 
 func playerActions(delta: float) -> void:
 	playerMove(delta)
