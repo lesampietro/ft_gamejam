@@ -326,10 +326,10 @@ animations = [{
 motion_mode = 1
 script = ExtResource("1_c4iqc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 shape = SubResource("RectangleShape2D_1jxqw")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." groups=["player"]]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Idle"

@@ -16,6 +16,7 @@ func _on_body_entered(_body):
 	$CollisionShape2D.set_deferred("disabled", true)
 
 func _ready() -> void:
+	add_to_group("player")
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	print("LOG: screen_size: ", screen_size)
 	$PlayerSprite.play()
@@ -62,12 +63,11 @@ func playerMove(delta: float) -> void:
 	#var playerSize = 50
 	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
 	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
-	print(global_position)
+	#print(global_position)
 
 func playerActions(delta: float) -> void:
 	playerMove(delta)
 	
-
 
 func _physics_process(delta: float) -> void:
 	playerActions(delta)
