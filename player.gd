@@ -25,6 +25,7 @@ func start(pos):
 
 func _ready() -> void:
 	add_to_group("player")
+	position = Vector2(-1300, 200)
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	update_health_bars()

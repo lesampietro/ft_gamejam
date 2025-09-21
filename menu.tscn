@@ -155,7 +155,7 @@ offset_bottom = 533.0
 theme_override_fonts/font = ExtResource("1_lti8b")
 theme_override_font_sizes/font_size = 50
 action_mode = 0
-text = "JOGAR"
+text = "PLAY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 root_node = NodePath("../..")
