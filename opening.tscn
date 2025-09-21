@@ -120,7 +120,6 @@ tracks/4/keys = {
 "values": [&"explosion", &"explosion"]
 }
 
-<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_gggm5"]
 length = 0.001
 tracks/0/type = "value"
@@ -184,8 +183,6 @@ tracks/4/keys = {
 "values": [&"explosion"]
 }
 
-=======
->>>>>>> refs/remotes/origin/opening
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psf0h"]
 _data = {
 &"RESET": SubResource("Animation_gggm5"),
