@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://uhqdivbp3i68"]
+[gd_scene format=3 uid="uid://uhqdivbp3i68"]
 
 [node name="ProgressBar" type="ProgressBar"]
 modulate = Color(0.952184, 3.85046e-07, 0.535632, 1)

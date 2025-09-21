@@ -59,6 +59,10 @@ func check_keyboard_actions() -> Vector2:
 		velocity.y += 1
 	return velocity
 
+func initSoundMoving() -> void:
+	if (!moveSoundEffect.playing):
+		moveSoundEffect.play()
+		
 func playerMove(delta: float) -> void:
 	var movement = check_keyboard_actions()
 	var movementState = "Idle" # Começa como Idle
@@ -71,15 +75,21 @@ func playerMove(delta: float) -> void:
 		PlayerState.NORMAL:
 			if movement.x > 0:
 				movementState = "move_right"
+				initSoundMoving()
 			elif movement.x < 0:
 				movementState = "move_left"
+				initSoundMoving()
 			elif movement.y > 0:
 				movementState = "move_down"
+				initSoundMoving()
 			elif movement.y < 0:
 				movementState = "move_up"
+				initSoundMoving()
 			else:
 				movementState = "Idle"
+				moveSoundEffect.stop()
 		PlayerState.ATTACK:
+			moveSoundEffect.stop()
 			if movement.x > 0:
 				movementState = "attack_right"
 			elif movement.x < 0:
@@ -160,3 +170,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name.begins_with("PinkVictim") and state == PlayerState.ATTACK:
 		state = PlayerState.ATTACK
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://player.tscn")
