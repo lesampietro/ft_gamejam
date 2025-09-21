@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbv5doww3d85g"
+path="res://.godot/imported/Jump3.wav-95c5a0650cfb978832a425c15b984ab0.sample"
+
+[deps]
+
+source_file="res://Audio/Sounds/Jump & Bounce/Jump3.wav"
+dest_files=["res://.godot/imported/Jump3.wav-95c5a0650cfb978832a425c15b984ab0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
