@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 200
-@export var damage = 3
+@export var damage = 1
 @export var knockback_force = 300
 var screen_size: Vector2
 var change_timer = 0.0
@@ -65,6 +65,7 @@ func handle_chase_state(delta):
 		# Se a distância for menor que 80, vai para COMEBACK
 		if distance < 80 and can_damage:
 			print("Enemy: CHASE -> COMEBACK (muito próximo)")
+			hit_player(player)
 			change_to_comeback_state()
 			return
 
@@ -119,8 +120,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			change_to_chase_state()
 
 		# Aplica dano se pode e se for o momento certo
-		if can_damage and state_enemy == states_enemy.CHASE:
-			hit_player(body)
+		#if can_damage and state_enemy == states_enemy.CHASE:
+			#hit_player(body)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player:
