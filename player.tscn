@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://diqke42v0uoky" path="res://pink_victim.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
 [ext_resource type="PackedScene" uid="uid://dp8k2cuomyf1j" path="res://enemy.tscn" id="7_1jxqw"]
-[ext_resource type="PackedScene" uid="uid://6wrwogm4c730" path="res://bush.tscn" id="9_n7ghd"]
-[ext_resource type="Script" uid="uid://c6a2asxfpsya8" path="res://bush.gd" id="10_nvl01"]
+[ext_resource type="PackedScene" path="res://bush.tscn" id="9_n7ghd"]
+[ext_resource type="Script" path="res://bush.gd" id="10_nvl01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 resource_local_to_scene = true
@@ -4704,7 +4704,7 @@ position = Vector2(825, 230)
 position = Vector2(788, -124)
 
 [node name="PinkVictim" parent="." instance=ExtResource("5_2hs0m")]
-position = Vector2(355, 217)
+position = Vector2(138, 1318)
 
 [node name="PinkVictim5" parent="." instance=ExtResource("5_2hs0m")]
 position = Vector2(-290, 120)
@@ -4832,6 +4832,21 @@ script = ExtResource("10_nvl01")
 [node name="CharacterBody2D31" parent="." instance=ExtResource("9_n7ghd")]
 position = Vector2(-1000, -348)
 script = ExtResource("10_nvl01")
+
+[node name="PinkVictim6" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(-1373, -223)
+
+[node name="PinkVictim7" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(-1057, -204)
+
+[node name="PinkVictim8" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(-950, 395)
+
+[node name="PinkVictim9" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(49, 966)
+
+[node name="PinkVictim10" parent="." instance=ExtResource("5_2hs0m")]
+position = Vector2(783, 1184)
 
 [node name="Enemy" parent="." instance=ExtResource("7_1jxqw")]
 position = Vector2(451, -217)

@@ -53,9 +53,9 @@ func victimRandomMove(delta: float) -> void:
 	move_and_slide()
 	
 	# limita a posição dentro da tela
-	var victimSize = 50
-	global_position.x = clamp(global_position.x, victimSize, screen_size.x - victimSize)
-	global_position.y = clamp(global_position.y, victimSize, screen_size.y - victimSize)
+	#var victimSize = 50
+	#global_position.x = clamp(global_position.x, victimSize, screen_size.x - victimSize)
+	#global_position.y = clamp(global_position.y, victimSize, screen_size.y - victimSize)
 
 func victimFollowMove(delta: float) -> void:
 	if is_caught or follow_target == null:
