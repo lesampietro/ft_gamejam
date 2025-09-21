@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhv3gbmvnavw4"]
+
+[ext_resource type="Script" uid="uid://bxsmipso1kw3o" path="res://health_bar.gd" id="1_kdjhy"]
+[ext_resource type="PackedScene" uid="uid://uhqdivbp3i68" path="res://progress_bar.tscn" id="2_kdjhy"]
+
+[node name="HealthBar" type="Node2D"]
+modulate = Color(0.165656, 0.165656, 0.165656, 1)
+script = ExtResource("1_kdjhy")
+
+[node name="ProgressBar" parent="." instance=ExtResource("2_kdjhy")]
+value = 3.0

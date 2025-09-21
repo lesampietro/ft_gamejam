@@ -65,7 +65,25 @@ func victimFollowMove(delta: float) -> void:
 	if follow_target:
 		var to_target = follow_target.global_position - global_position
 		if to_target.length() != 0:
+			var movementState = "idle_after"
+		
 			var direction_to_target = to_target.normalized()
+			print("dir.x: ", direction_to_target.x)
+			print("dir.y: ", direction_to_target.y)
+			if abs(direction_to_target.x) > abs(direction_to_target.y):
+				if direction_to_target.x > 0:
+					movementState = "move_right"
+				else:
+					movementState = "move_left"
+			else:
+				if direction_to_target.y > 0:
+					movementState = "move_down"
+				else:
+					movementState = "move_up"
+
+			if $PinkVictimSprite.animation != movementState:
+				$PinkVictimSprite.animation = movementState
+				$PinkVictimSprite.play()
 			var spacing = 60
 			var desired_position = follow_target.global_position - direction_to_target * spacing
 			var offset = desired_position - global_position

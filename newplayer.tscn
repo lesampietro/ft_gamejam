@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d0fhjryhhnb3s" path="res://imgs/left-blob-01.png" id="4_yay21"]
 [ext_resource type="Texture2D" uid="uid://c37uynxn472r6" path="res://imgs/player-attack-right.png" id="5_2hh6c"]
 [ext_resource type="Texture2D" uid="uid://cij6huessqb8g" path="res://imgs/right-blob-01.png" id="5_c4skq"]
-[ext_resource type="Texture2D" uid="uid://clslcrmqp1pdo" path="res://imgs/back-walk-sprite.png" id="6_2hh6c"]
+[ext_resource type="Texture2D" uid="uid://boc11mx7guuts" path="res://imgs/back-walk-sprite.png" id="6_2hh6c"]
+[ext_resource type="PackedScene" uid="uid://dhv3gbmvnavw4" path="res://health_bar.tscn" id="7_ki1dg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4iqc"]
 radius = 19.0
@@ -513,6 +514,7 @@ radius = 23.0
 height = 56.0
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(575, 325)
 motion_mode = 1
 script = ExtResource("1_c4iqc")
 
@@ -528,7 +530,47 @@ frame_progress = 0.74997
 speed_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
+
+[node name="PlayerGUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="PlayerGUI"]
+layout_mode = 3
+anchor_top = 0.799
+anchor_right = 0.341
+anchor_bottom = 1.0
+offset_top = 0.247986
+offset_right = 0.167969
+grow_vertical = 0
+
+[node name="LifeLabel" type="Label" parent="PlayerGUI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -63.0
+offset_right = 56.0
+offset_bottom = -40.0
+grow_vertical = 0
+text = "Vida:"
+
+[node name="ScoreLabel" type="Label" parent="PlayerGUI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -94.0
+offset_right = 76.0
+offset_bottom = -71.0
+grow_vertical = 0
+text = "Score: 0"
+
+[node name="HealthBar" parent="PlayerGUI/Control" instance=ExtResource("7_ki1dg")]
+position = Vector2(3, 131)
+
+[node name="HealthBar2" parent="PlayerGUI" instance=ExtResource("7_ki1dg")]
+position = Vector2(424, 452)
 
 [node name="Area2D" type="Area2D" parent="."]
 
