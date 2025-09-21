@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://6wrwogm4c730"]
+
+[ext_resource type="Texture2D" uid="uid://dw2vceehjqm7a" path="res://imgs/Bushe1.png" id="1_8cy4n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cy4n"]
+radius = 24.0
+height = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28u5p"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilexf"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki2aw"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahiml"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hspfa"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8a55"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt4ea"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucvp2"]
+atlas = ExtResource("1_8cy4n")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6e34l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28u5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilexf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki2aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahiml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hspfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8a55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt4ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucvp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 2)
+shape = SubResource("CapsuleShape2D_8cy4n")
+
+[node name="bush" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 8)
+sprite_frames = SubResource("SpriteFrames_6e34l")
+frame_progress = 0.991808
