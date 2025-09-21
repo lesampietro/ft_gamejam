@@ -5,6 +5,7 @@ var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 @onready var health_bars = [$PlayerGUI/Control/HealthBar/ProgressBar, $PlayerGUI/HealthBar2/ProgressBar]
 @onready var gameoverlayer = $"../GameOverLayer"
+@onready var winLayer = $"../WinLayer"
 @onready var scoreLabel = $PlayerGUI/Control/ScoreLabel
 @onready var moveSoundEffect = $MoveSoundEffect
 
@@ -17,6 +18,7 @@ var state = PlayerState.NORMAL
 
 var pause_timer = 0.0
 var health = 10
+var win_condition = 5
 
 #knockback
 var knockback_velocity = Vector2.ZERO
@@ -33,6 +35,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	update_health_bars()
+	print(winLayer.visible)
 
 func update_health_bars() -> void:
 	health_bars[0].value = health
@@ -106,10 +109,21 @@ func add_dominated(victim): # adiciona vitimas a array
 	dominated_victims.append(victim) # adiciona a ultima posição da array
 	
 	scoreLabel.text = "Score: " + str(dominated_victims.size())
+	if (dominated_victims.size() >= win_condition):
+		print("you win")
+		winLayer.visible = true
 
-func _physics_process(delta: float) -> void:
+func is_end_game() -> bool:
 	if (health == 0):
 		gameoverlayer.visible = true
+		return true
+	if (dominated_victims.size() >= win_condition):
+		winLayer.visible = true
+		return true
+	return false
+
+func _physics_process(delta: float) -> void:
+	if (is_end_game()):
 		return
 	if pause_timer > 0:
 		pause_timer -= delta

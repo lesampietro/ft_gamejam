@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 200
-@export var damage = 1
+@export var damage = 5
 @export var knockback_force = 300
 
 var screen_size: Vector2

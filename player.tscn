@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://vxn3in1a2kdu"]
+[gd_scene load_steps=29 format=4 uid="uid://vxn3in1a2kdu"]
 
 [ext_resource type="Texture2D" uid="uid://c0owpdm4o7nmo" path="res://packs/seamless-64px-rpg-tiles/wood wall.png" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bgaddcm347rtr" path="res://imgs/beach_tiles.png" id="2_1jxqw"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6wrwogm4c730" path="res://bush.tscn" id="9_n7ghd"]
 [ext_resource type="Script" uid="uid://c6a2asxfpsya8" path="res://bush.gd" id="10_nvl01"]
 [ext_resource type="AudioStream" uid="uid://djumckgd8usjh" path="res://Audio/Musics/3 - Revelation.ogg" id="13_urp6f"]
+[ext_resource type="Texture2D" uid="uid://bush3a430yjw1" path="res://imgs/final.webp" id="14_bwjto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 resource_local_to_scene = true
@@ -3825,7 +3826,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 2.0
-offset_bottom = -1.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.233925, 0.233925, 0.233925, 0.835294)
@@ -3850,3 +3851,29 @@ volume_db = -15.584
 pitch_scale = 1.4
 autoplay = true
 parameters/looping = true
+
+[node name="WinLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="WinLayer"]
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 0.998
+offset_right = -3.45605
+offset_bottom = 5.29596
+texture = ExtResource("14_bwjto")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="WinLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.997
+offset_right = 1.0
+offset_bottom = -0.0560303
+text = "
+
+
+CONGRATULATIONS
+
+YOUR KIND CONQUERED THE WORLD..."
+horizontal_alignment = 1
