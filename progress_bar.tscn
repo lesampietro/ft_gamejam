@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://uhqdivbp3i68"]
+
+[node name="ProgressBar" type="ProgressBar"]
+modulate = Color(0.952184, 3.85046e-07, 0.535632, 1)
+self_modulate = Color(1, 0.254038, 0.413533, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = -65.0
+offset_right = 253.0
+offset_bottom = -38.0
+grow_vertical = 0
+max_value = 10.0
+value = 10.0
+show_percentage = false

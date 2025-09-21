@@ -1,5 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://diqke42v0uoky"]
 
+
 [ext_resource type="Script" uid="uid://dc7fkddj4f4cs" path="res://pink_victim.gd" id="1_803xu"]
 [ext_resource type="Texture2D" uid="uid://c236cjj17s8ak" path="res://imgs/idle-victim-01.png" id="2_nyy5r"]
 [ext_resource type="Texture2D" uid="uid://72nw2wy3rlbt" path="res://packs/Retro Impact Effect Pack 5/Retro Impact Effect Pack 5 B.png" id="2_xbly0"]
@@ -119,9 +120,18 @@ animations = [{
 "speed": 5.0
 }]
 
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_803xu"]
+bg_color = Color(0.268723, 0.302675, 0.317001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyy5r"]
+bg_color = Color(0.770979, 0.399389, 0.825108, 1)
+
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_803xu"]
 radius = 23.0
 height = 56.0
+
 
 [node name="PinkVictim" type="CharacterBody2D"]
 input_pickable = true
@@ -134,6 +144,17 @@ shape = SubResource("RectangleShape2D_1jxqw")
 sprite_frames = SubResource("SpriteFrames_vl8ci")
 animation = &"idle"
 
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = 29.0
+offset_right = 36.0
+offset_bottom = 56.0
+theme_override_styles/background = SubResource("StyleBoxFlat_803xu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nyy5r")
+value = 50.0
+show_percentage = false
+
 [node name="AreaPlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayerDetection"]
@@ -142,3 +163,4 @@ shape = SubResource("CapsuleShape2D_803xu")
 
 [connection signal="body_entered" from="AreaPlayerDetection" to="." method="_on_area_player_detection_body_entered"]
 [connection signal="body_exited" from="AreaPlayerDetection" to="." method="_on_area_player_detection_body_exited"]
+
