@@ -13,7 +13,7 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 	
-	
+
 func _on_body_entered(_body):
 	hide() # Player disappears after being hit.
 	#hit.emit()
