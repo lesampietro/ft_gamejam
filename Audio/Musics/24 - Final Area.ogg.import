@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0mmf3okvysyi"
+path="res://.godot/imported/24 - Final Area.ogg-7c8a6183b5c24fb09d1f178720eb6c2e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Musics/24 - Final Area.ogg"
+dest_files=["res://.godot/imported/24 - Final Area.ogg-7c8a6183b5c24fb09d1f178720eb6c2e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
