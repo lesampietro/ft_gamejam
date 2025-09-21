@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp8k2cuomyf1j"]
+
+[ext_resource type="Script" uid="uid://bt5gtkmlvnc7q" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dv71hjb8n6fv2" path="res://imgs/enemy.png" id="1_7k104"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gyqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7k104")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
+radius = 73.0
+height = 146.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 236.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 3
+script = ExtResource("1_4gyqm")
+
+[node name="enemy_sprites" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_4gyqm")
+animation = &"idle"
+speed_scale = 0.3
+
+[node name="CollisionEnemyArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qi2p4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="VisionArea" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
+shape = SubResource("CircleShape2D_4gyqm")
+one_way_collision_margin = 0.0
+debug_color = Color(0.861861, 0.275047, 0.594339, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

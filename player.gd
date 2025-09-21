@@ -11,6 +11,7 @@ func start(pos):
 	$CollisionShape2D.disabled = true
 
 func _ready() -> void:
+	add_to_group("player")
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	

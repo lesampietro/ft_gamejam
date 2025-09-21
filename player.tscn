@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chrar0gdp3ss0" path="res://newplayer.tscn" id="4_sweqy"]
 [ext_resource type="PackedScene" uid="uid://diqke42v0uoky" path="res://pink_victim.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
+[ext_resource type="PackedScene" uid="uid://dp8k2cuomyf1j" path="res://enemy.tscn" id="7_1jxqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 resource_local_to_scene = true
@@ -998,7 +999,6 @@ sources/1 = SubResource("TileSetAtlasSource_dw050")
 
 [node name="Game" type="Area2D"]
 position = Vector2(397, 233)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dw050")
@@ -1026,3 +1026,6 @@ position = Vector2(788, -124)
 
 [node name="PinkVictim" parent="." instance=ExtResource("5_2hs0m")]
 position = Vector2(355, 217)
+
+[node name="Enemy" parent="." instance=ExtResource("7_1jxqw")]
+position = Vector2(451, -217)
