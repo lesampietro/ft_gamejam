@@ -2,8 +2,10 @@ extends CharacterBody2D
 @export var speed = 500
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
+@onready var health_bars = [$PlayerGUI/Control/HealthBar/ProgressBar, $PlayerGUI/HealthBar2/ProgressBar]
 var dominated_victims = []
 var trail_positions: Array = []
+var health = 10
 
 func start(pos):
 	position = pos
@@ -14,31 +16,38 @@ func _ready() -> void:
 	add_to_group("player")
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
-	
-	
+
+func update_health_bars() -> void:
+	health_bars[0].value = health
+	health_bars[1].value = health
+
+
 func check_keyboard_actions() -> Vector2:
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
+		health += 1
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
+		health -= 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1	
+		velocity.y += 1
 	return velocity
 
-func playerMove(delta: float) -> void: 
+func playerMove(delta: float) -> void:
 	var movement = check_keyboard_actions()
 	var movementState = "Idle" # Começa como Idle
 	if movement.length() > 0:
 		movement = movement.normalized()
 	velocity = movement * speed
 	move_and_slide()
-	
+
 	if movement.x != 0:
 		if movement.x > 0:
 			movementState = "move_right"
+
 		else:
 			movementState = "move_left"
 	elif movement.y != 0:
@@ -53,7 +62,7 @@ func playerMove(delta: float) -> void:
 	if $PlayerSprite.animation != movementState:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
-		
+
 	#var playerSize = 50
 	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
 	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
@@ -67,10 +76,11 @@ func add_dominated(victim): # adiciona vitimas a array
 	else:
 		victim.follow_target = dominated_victims[-1] # se tiver vitimas, segue a ultima
 	dominated_victims.append(victim) # adiciona a ultima posição da array
-	
+
 	print(dominated_victims.size())
 
 func _physics_process(delta: float) -> void:
 	playerActions(delta)
-	
+	print(health_bars[0].value)
+	update_health_bars()
 	
