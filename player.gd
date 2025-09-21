@@ -18,7 +18,7 @@ var state = PlayerState.NORMAL
 
 var pause_timer = 0.0
 var health = 10
-var win_condition = 5
+var win_condition = 10
 
 #knockback
 var knockback_velocity = Vector2.ZERO
@@ -34,6 +34,10 @@ func _ready() -> void:
 	add_to_group("player")
 	position = Vector2(-1225, 310)
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
+	$PlayerSprite.visible = false # player invisível no início
+	$SpawnSprite.visible = true
+	$SpawnSprite.play("effect")
+	$SpawnSprite.animation_finished.connect(_on_spawn_sprite_animation_finished)
 	$PlayerSprite.play()
 	update_health_bars()
 	print(winLayer.visible)
@@ -63,23 +67,29 @@ func playerMove(delta: float) -> void:
 	velocity = movement * speed
 	move_and_slide()
 
-	if movement.x != 0:
-		if !moveSoundEffect.playing:
-			moveSoundEffect.play()
-		if movement.x > 0:
-			movementState = "move_right"
-		else:
-			movementState = "move_left"
-	elif movement.y != 0:
-		if !moveSoundEffect.playing:
-			moveSoundEffect.play()
-		if movement.y > 0:
-			movementState = "move_down"
-		else:
-			movementState = "move_up"
-	elif movement.length() > 0:
-		movementState = "default"
-		moveSoundEffect.stop()
+	match state:
+		PlayerState.NORMAL:
+			if movement.x > 0:
+				movementState = "move_right"
+			elif movement.x < 0:
+				movementState = "move_left"
+			elif movement.y > 0:
+				movementState = "move_down"
+			elif movement.y < 0:
+				movementState = "move_up"
+			else:
+				movementState = "Idle"
+		PlayerState.ATTACK:
+			if movement.x > 0:
+				movementState = "attack_right"
+			elif movement.x < 0:
+				movementState = "attack_left"
+			elif movement.y > 0:
+				movementState = "attack_down"
+			elif movement.y < 0:
+				movementState = "move_up"
+			else:
+				movementState = "attack_down"
 
 	# Só troca se for diferente!
 	if $PlayerSprite.animation != movementState:
@@ -131,3 +141,22 @@ func take_damage(damage_amount: int):
 	health -= damage_amount
 	health = max(health, 0)
 	update_health_bars()
+	print("Player tomou dano!")
+
+
+func _on_spawn_sprite_animation_finished() -> void:
+	$SpawnSprite.visible = false
+	$PlayerSprite.visible = true
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name.begins_with("PinkVictim") and state == PlayerState.NORMAL:
+		state = PlayerState.ATTACK
+		#$PlayerSprite.animation = "attack_down" # ou outro dependendo da direção
+		#$PlayerSprite.play()
+		pause_timer = 1.0
+		
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name.begins_with("PinkVictim") and state == PlayerState.ATTACK:
+		state = PlayerState.ATTACK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://deh4b4nj6wyj4"]
+[gd_scene load_steps=8 format=3 uid="uid://g3tag4a8u3ph"]
 
 [ext_resource type="Script" uid="uid://b0y3r86d67kv4" path="res://menu.gd" id="1_4hy44"]
 [ext_resource type="FontFile" uid="uid://devfgwk5ot61e" path="res://fonts/Super Trend.ttf" id="1_lti8b"]
