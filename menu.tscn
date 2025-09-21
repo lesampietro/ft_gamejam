@@ -1,0 +1,169 @@
+[gd_scene load_steps=7 format=3 uid="uid://deh4b4nj6wyj4"]
+
+[ext_resource type="FontFile" uid="uid://devfgwk5ot61e" path="res://fonts/Super Trend.ttf" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://ddbl5hvbwqlm3" path="res://imgs/menu-bg.jpg" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://dyf7n0aue5veb" path="res://imgs/comet.png" id="3_4hy44"]
+
+[sub_resource type="Animation" id="Animation_ytr4m"]
+resource_name = "title"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.00517, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.939839, 0.82913, 1, 1), Color(1, 1, 1, 1), Color(0.972549, 0.92549, 0.596078, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.49582, 3.01194, 4.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604, 0.594604, 0.594604),
+"update": 0,
+"values": [Vector2(53, 100), Vector2(53, 129), Vector2(53, 100), Vector2(53, 129)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1.075), Vector2(1, 1), Vector2(1, 1.075), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Comet:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-157, 335.591), Vector2(1344, 335.591), Vector2(1344, 335.591)]
+}
+
+[sub_resource type="Animation" id="Animation_l48gv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.939839, 0.82913, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(53, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Comet:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-157, 335.591)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwwl"]
+_data = {
+&"RESET": SubResource("Animation_l48gv"),
+&"title": SubResource("Animation_ytr4m")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu-bg" type="Sprite2D" parent="."]
+position = Vector2(579.929, 324)
+scale = Vector2(0.729911, 0.729911)
+texture = ExtResource("1_mae5d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.152941, 0.0431373, 0.164706, 0.537255)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 100.0
+offset_right = 1097.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0.939839, 0.82913, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 120
+text = "Fluffy Invader"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 446.0
+offset_right = 686.0
+offset_bottom = 533.0
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "JOGAR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ecwwl")
+}
+
+[node name="Comet" type="Sprite2D" parent="."]
+position = Vector2(-157, 335.591)
+rotation = -0.764454
+scale = Vector2(0.689217, 0.689217)
+texture = ExtResource("3_4hy44")
