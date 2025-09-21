@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biyq6yijm7nd6"
-path="res://.godot/imported/back-walk-sprite.png-6ac00c89e29a53433059dcc63d5f9341.ctex"
+uid="uid://ck776ety5aidm"
+path="res://.godot/imported/victim-attacked-01.png-5028f145eb173c7db3746bc18bd5aac5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imgs/back-walk-sprite.png"
-dest_files=["res://.godot/imported/back-walk-sprite.png-6ac00c89e29a53433059dcc63d5f9341.ctex"]
+source_file="res://imgs/victim-attacked-01.png"
+dest_files=["res://.godot/imported/victim-attacked-01.png-5028f145eb173c7db3746bc18bd5aac5.ctex"]
 
 [params]
 

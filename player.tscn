@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://vxn3in1a2kdu"]
+[gd_scene load_steps=17 format=4 uid="uid://vxn3in1a2kdu"]
 
 [ext_resource type="Texture2D" uid="uid://c0owpdm4o7nmo" path="res://packs/seamless-64px-rpg-tiles/wood wall.png" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bgaddcm347rtr" path="res://imgs/beach_tiles.png" id="2_1jxqw"]
