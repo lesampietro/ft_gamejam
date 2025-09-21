@@ -4846,7 +4846,7 @@ position = Vector2(-950, 395)
 position = Vector2(49, 966)
 
 [node name="PinkVictim10" parent="." instance=ExtResource("5_2hs0m")]
-position = Vector2(783, 1184)
+position = Vector2(910, 1205)
 
 [node name="Enemy" parent="." instance=ExtResource("7_1jxqw")]
 position = Vector2(451, -217)

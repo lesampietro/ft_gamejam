@@ -73,9 +73,6 @@ func playerMove(delta: float) -> void:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
 
-	#var playerSize = 50
-	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
-	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
 
 func playerActions(delta: float) -> void:
 	if knockback_velocity.length() > 0:
