@@ -2,22 +2,16 @@ extends CharacterBody2D
 @export var speed = 500
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
+var dominated_victims = []
+var trail_positions: Array = []
 
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = true
-	
-	
-func _on_body_entered(_body):
-	hide() # Player disappears after being hit.
-	#hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
-	print("LOG: screen_size: ", screen_size)
 	$PlayerSprite.play()
 	
 	
@@ -62,13 +56,20 @@ func playerMove(delta: float) -> void:
 	#var playerSize = 50
 	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
 	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
-	print(global_position)
 
 func playerActions(delta: float) -> void:
 	playerMove(delta)
-	
 
+func add_dominated(victim): # adiciona vitimas a array
+	if dominated_victims.size() == 0:
+		victim.follow_target = self # se array estiver vazio, segue player
+	else:
+		victim.follow_target = dominated_victims[-1] # se tiver vitimas, segue a ultima
+	dominated_victims.append(victim) # adiciona a ultima posição da array
+	
+	print(dominated_victims.size())
 
 func _physics_process(delta: float) -> void:
 	playerActions(delta)
+	
 	
