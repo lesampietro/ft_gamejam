@@ -10,7 +10,7 @@ var repel_distance = 200  # distância que a vítima começa a fugir
 
 enum VictimState { FREE, DOMINATED }
 var state = VictimState.FREE
-var follow_target: Node2D = null 
+var follow_target: Node2D = null
 
 var is_caught = false
 var pause_timer = 0.0
@@ -32,7 +32,7 @@ func victimRandomMove(delta: float) -> void:
 	if is_caught:
 		velocity = Vector2.ZERO
 		return
-	
+
 	var to_player = player.global_position - global_position  # direção para o player
 	var distance = to_player.length()
 
@@ -62,10 +62,8 @@ func victimFollowMove(delta: float) -> void:
 		var to_target = follow_target.global_position - global_position
 		if to_target.length() != 0:
 			var movementState = "idle_after"
-		
+
 			var direction_to_target = to_target.normalized()
-			print("dir.x: ", direction_to_target.x)
-			print("dir.y: ", direction_to_target.y)
 			if abs(direction_to_target.x) > abs(direction_to_target.y):
 				if direction_to_target.x > 0:
 					movementState = "move_right"
@@ -112,7 +110,7 @@ func _physics_process(delta: float) -> void:
 			follow_target = player
 		elif idx > 0:
 			follow_target = player.dominated_victims[idx - 1]
-	
+
 	# atualiza pausa
 	if is_caught:
 		pause_timer -= delta
@@ -125,7 +123,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		victimActions(delta)
 
-	
+
 func _on_area_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and state == VictimState.FREE:
 		state = VictimState.DOMINATED

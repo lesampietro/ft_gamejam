@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://diqke42v0uoky" path="res://pink_victim.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
 [ext_resource type="PackedScene" uid="uid://dp8k2cuomyf1j" path="res://enemy.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://6wrwogm4c730" path="res://bush.tscn" id="9_n7ghd"]
+[ext_resource type="Script" uid="uid://c6a2asxfpsya8" path="res://bush.gd" id="10_nvl01"]
+[ext_resource type="AudioStream" uid="uid://djumckgd8usjh" path="res://Audio/Musics/3 - Revelation.ogg" id="13_urp6f"]
+[ext_resource type="Texture2D" uid="uid://bush3a430yjw1" path="res://imgs/final.webp" id="14_bwjto"]
 [ext_resource type="PackedScene" path="res://bush.tscn" id="9_n7ghd"]
 [ext_resource type="Script" path="res://bush.gd" id="10_nvl01"]
 
@@ -4852,3 +4856,64 @@ position = Vector2(910, 1205)
 position = Vector2(451, -217)
 
 [node name="Player" parent="." instance=ExtResource("4_sweqy")]
+position = Vector2(179, 90)
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.233925, 0.233925, 0.233925, 0.835294)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverLayer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_urp6f")
+volume_db = -15.584
+pitch_scale = 1.4
+autoplay = true
+parameters/looping = true
+
+[node name="WinLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="WinLayer"]
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 0.998
+offset_right = -3.45605
+offset_bottom = 5.29596
+texture = ExtResource("14_bwjto")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="WinLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.997
+offset_right = 1.0
+offset_bottom = -0.0560303
+text = "
+
+
+CONGRATULATIONS
+
+YOUR KIND CONQUERED THE WORLD..."
+horizontal_alignment = 1

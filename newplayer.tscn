@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://clslcrmqp1pdo" path="res://imgs/back-walk-sprite.png" id="6_2hh6c"]
 [ext_resource type="PackedScene" uid="uid://dhv3gbmvnavw4" path="res://health_bar.tscn" id="7_ki1dg"]
 [ext_resource type="Texture2D" uid="uid://72nw2wy3rlbt" path="res://packs/Retro Impact Effect Pack 5/Retro Impact Effect Pack 5 B.png" id="10_2hh6c"]
+[ext_resource type="AudioStream" uid="uid://duqkhjkmhr5gg" path="res://Audio/Sounds/Elemental/Bubble2.wav" id="11_2hh6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4iqc"]
 radius = 19.0
@@ -634,5 +635,10 @@ shape = SubResource("CapsuleShape2D_r6oue")
 
 [connection signal="animation_finished" from="SpawnSprite" to="." method="_on_spawn_sprite_animation_finished"]
 [connection signal="animation_finished" from="PlayerSprite" to="." method="_on_player_sprite_animation_finished"]
+[node name="MoveSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_2hh6c")
+volume_db = -2.971
+pitch_scale = 1.98
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

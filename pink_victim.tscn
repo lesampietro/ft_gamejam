@@ -492,6 +492,7 @@ sprite_frames = SubResource("SpriteFrames_vl8ci")
 animation = &"move_up"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -38.0
 offset_top = 29.0
 offset_right = 36.0
