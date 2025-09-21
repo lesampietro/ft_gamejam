@@ -52,10 +52,6 @@ func victimRandomMove(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 
-	# limita a posição dentro da tela
-	var victimSize = 50
-	global_position.x = clamp(global_position.x, victimSize, screen_size.x - victimSize)
-	global_position.y = clamp(global_position.y, victimSize, screen_size.y - victimSize)
 
 func victimFollowMove(delta: float) -> void:
 	if is_caught or follow_target == null:
@@ -107,6 +103,14 @@ func victimActions(delta: float) -> void:
 	victimMove(delta)
 
 func _physics_process(delta: float) -> void:
+	# Atualiza o follow_target para manter a fila alinhada
+	if state == VictimState.DOMINATED and player.dominated_victims.size() > 0:
+		var idx = player.dominated_victims.find(self)
+		if idx == 0:
+			follow_target = player
+		elif idx > 0:
+			follow_target = player.dominated_victims[idx - 1]
+
 	# atualiza pausa
 	if is_caught:
 		pause_timer -= delta

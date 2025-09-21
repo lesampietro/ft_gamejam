@@ -25,13 +25,14 @@ var knockback_velocity = Vector2.ZERO
 var knockback_decay = 800
 
 func start(pos):
-	
+
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 
 func _ready() -> void:
 	add_to_group("player")
+	position = Vector2(-1225, 310)
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	update_health_bars()
@@ -84,14 +85,6 @@ func playerMove(delta: float) -> void:
 	if $PlayerSprite.animation != movementState:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
-	
-	#if movementState != "default":
-		#moveSoundEffect.play()
-	#else:
-		#moveSoundEffect.stop()
-	#var playerSize = 50
-	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
-	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
 
 func playerActions(delta: float) -> void:
 	if knockback_velocity.length() > 0:
@@ -107,7 +100,7 @@ func add_dominated(victim): # adiciona vitimas a array
 	else:
 		victim.follow_target = dominated_victims[-1] # se tiver vitimas, segue a ultima
 	dominated_victims.append(victim) # adiciona a ultima posição da array
-	
+
 	scoreLabel.text = "Score: " + str(dominated_victims.size())
 	if (dominated_victims.size() >= win_condition):
 		print("you win")
