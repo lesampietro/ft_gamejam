@@ -1,12 +1,45 @@
-[gd_scene load_steps=21 format=3 uid="uid://diqke42v0uoky"]
+[gd_scene load_steps=30 format=3 uid="uid://diqke42v0uoky"]
 
 [ext_resource type="Script" uid="uid://dc7fkddj4f4cs" path="res://pink_victim.gd" id="1_803xu"]
 [ext_resource type="Texture2D" uid="uid://c236cjj17s8ak" path="res://imgs/idle-victim-01.png" id="2_nyy5r"]
+[ext_resource type="Texture2D" uid="uid://cmi65quymrnvm" path="res://imgs/victim-attacked-01.png" id="2_pjycn"]
 [ext_resource type="Texture2D" uid="uid://72nw2wy3rlbt" path="res://packs/Retro Impact Effect Pack 5/Retro Impact Effect Pack 5 B.png" id="2_xbly0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0tw2"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdvmq"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grj3v"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud71e"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr17m"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy01t"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px1r5"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg30t"]
+atlas = ExtResource("2_pjycn")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjycn"]
 atlas = ExtResource("2_xbly0")
@@ -66,6 +99,35 @@ region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vl8ci"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0tw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdvmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grj3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud71e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr17m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy01t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px1r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg30t")
+}],
+"loop": true,
+"name": &"being-attacked",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjycn")
@@ -132,7 +194,7 @@ shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="PinkVictimSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vl8ci")
-animation = &"idle"
+animation = &"being-attacked"
 
 [node name="AreaPlayerDetection" type="Area2D" parent="."]
 

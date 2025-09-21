@@ -12,6 +12,12 @@ enum VictimState { FREE, DOMINATED }
 var state = VictimState.FREE
 var follow_target: Node2D = null 
 
+var is_caught = false
+var pause_timer = 0.0
+var pending_follow_restore = false  # sinaliza que o follow deve voltar
+var previous_follow_target: Node2D = null
+
+
 func start(pos):
 	position = pos
 	show()
@@ -23,6 +29,10 @@ func _ready() -> void:
 	$PinkVictimSprite.play()
 
 func victimRandomMove(delta: float) -> void:
+	if is_caught:
+		velocity = Vector2.ZERO
+		return
+	
 	var to_player = player.global_position - global_position  # direção para o player
 	var distance = to_player.length()
 
@@ -48,6 +58,10 @@ func victimRandomMove(delta: float) -> void:
 	global_position.y = clamp(global_position.y, victimSize, screen_size.y - victimSize)
 
 func victimFollowMove(delta: float) -> void:
+	if is_caught or follow_target == null:
+		velocity = Vector2.ZERO
+		return
+
 	if follow_target:
 		var to_target = follow_target.global_position - global_position
 		if to_target.length() != 0:
@@ -77,13 +91,34 @@ func victimActions(delta: float) -> void:
 	victimMove(delta)
 
 func _physics_process(delta: float) -> void:
-	victimActions(delta)
+	# atualiza pausa
+	if is_caught:
+		pause_timer -= delta
+		if pause_timer <= 0:
+			is_caught = false
+			$PinkVictimSprite.animation = "idle"
+			if pending_follow_restore:
+				follow_target = player
+				pending_follow_restore = false
+	else:
+		victimActions(delta)
+
 	
 func _on_area_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and state == VictimState.FREE:
 		state = VictimState.DOMINATED
 		player.add_dominated(self)
 		speed = 500
+
+		# ativa pausa de 1 segundo com sprite "being-attacked"
+		is_caught = true
+		pause_timer = 1.0
+		$PinkVictimSprite.animation = "being-attacked"
+		$PinkVictimSprite.animation = "explode"
+
+		# remove temporariamente o follow e marca para restaurar depois da pausa
+		pending_follow_restore = true
+		follow_target = null
 
 func _on_area_player_detection_body_exited(body: Node2D) -> void:
 	pass
