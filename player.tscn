@@ -1004,8 +1004,10 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_dw050")
 
 [node name="Map" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
+visible = false
 shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Map"]
@@ -1014,6 +1016,7 @@ tile_map_data = PackedByteArray("AADo//H/AQAAAAgAAADo//L/AQAAAAkAAADp//H/AQABAAg
 tile_set = SubResource("TileSet_b26j0")
 
 [node name="Player" parent="." instance=ExtResource("4_sweqy")]
+position = Vector2(179, 90)
 
 [node name="PinkVictim" parent="." instance=ExtResource("5_2hs0m")]
 position = Vector2(355, 217)

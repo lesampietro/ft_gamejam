@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://diqke42v0uoky"]
+[gd_scene load_steps=15 format=3 uid="uid://diqke42v0uoky"]
 
 [ext_resource type="Script" uid="uid://dc7fkddj4f4cs" path="res://pink_victim.gd" id="1_803xu"]
 [ext_resource type="Texture2D" uid="uid://c236cjj17s8ak" path="res://imgs/idle-victim-01.png" id="2_nyy5r"]
@@ -71,6 +71,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_803xu"]
+bg_color = Color(0.268723, 0.302675, 0.317001, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyy5r"]
+bg_color = Color(0.770979, 0.399389, 0.825108, 1)
+
 [node name="PinkVictim" type="CharacterBody2D"]
 script = ExtResource("1_803xu")
 
@@ -80,3 +86,13 @@ shape = SubResource("RectangleShape2D_1jxqw")
 [node name="PinkVictimSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vl8ci")
 animation = &"idle"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = 29.0
+offset_right = 36.0
+offset_bottom = 56.0
+theme_override_styles/background = SubResource("StyleBoxFlat_803xu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nyy5r")
+value = 50.0
+show_percentage = false
