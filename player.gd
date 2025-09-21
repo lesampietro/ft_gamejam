@@ -4,6 +4,8 @@ extends CharacterBody2D
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 @onready var health_bars = [$PlayerGUI/Control/HealthBar/ProgressBar, $PlayerGUI/HealthBar2/ProgressBar]
+@onready var gameoverlayer = $"../GameOverLayer"
+
 var dominated_victims = []
 var trail_positions: Array = []
 @onready var pink_victim = get_node("../PinkVictim")
@@ -19,12 +21,14 @@ var knockback_velocity = Vector2.ZERO
 var knockback_decay = 800
 
 func start(pos):
+	
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 
 func _ready() -> void:
 	add_to_group("player")
+	print(gameoverlayer.visible)
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	update_health_bars()
@@ -94,6 +98,9 @@ func add_dominated(victim): # adiciona vitimas a array
 	print(dominated_victims.size())
 
 func _physics_process(delta: float) -> void:
+	if (health == 0):
+		gameoverlayer.visible = true
+		return
 	if pause_timer > 0:
 		pause_timer -= delta
 	else:
