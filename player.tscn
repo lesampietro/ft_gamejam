@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://vxn3in1a2kdu"]
+[gd_scene load_steps=17 format=4 uid="uid://vxn3in1a2kdu"]
 
 [ext_resource type="Texture2D" uid="uid://c0owpdm4o7nmo" path="res://packs/seamless-64px-rpg-tiles/wood wall.png" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bgaddcm347rtr" path="res://imgs/beach_tiles.png" id="2_1jxqw"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chrar0gdp3ss0" path="res://newplayer.tscn" id="4_sweqy"]
 [ext_resource type="PackedScene" uid="uid://diqke42v0uoky" path="res://pink_victim.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
-[ext_resource type="PackedScene" uid="uid://dp8k2cuomyf1j" path="res://enemy.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" path="res://enemy.tscn" id="7_1jxqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 resource_local_to_scene = true
