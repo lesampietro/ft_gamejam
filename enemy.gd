@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Corpo detectado: ", body.name, " - Grupos: ", body.get_groups())
+	#print("Corpo detectado: ", body.name, " - Grupos: ", body.get_groups())
 	if body.is_in_group("player"):
 		player = body
 		chasing = true

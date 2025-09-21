@@ -114,7 +114,7 @@ func _on_area_player_detection_body_entered(body: Node2D) -> void:
 		is_caught = true
 		pause_timer = 1.0
 		$PinkVictimSprite.animation = "being-attacked"
-		$PinkVictimSprite.animation = "explode"
+		#$PinkVictimSprite.animation = "explode"
 
 		# remove temporariamente o follow e marca para restaurar depois da pausa
 		pending_follow_restore = true

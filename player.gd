@@ -4,11 +4,17 @@ var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 var dominated_victims = []
 var trail_positions: Array = []
+@onready var pink_victim = get_node("../PinkVictim")
+
+enum PlayerState { NORMAL, ATTACK }
+var state = PlayerState.NORMAL
+
+var pause_timer = 0.0
 
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -36,18 +42,29 @@ func playerMove(delta: float) -> void:
 	velocity = movement * speed
 	move_and_slide()
 	
-	if movement.x != 0:
-		if movement.x > 0:
-			movementState = "move_right"
-		else:
-			movementState = "move_left"
-	elif movement.y != 0:
-		if movement.y > 0:
-			movementState = "move_down"
-		else:
-			movementState = "move_up"
-	elif movement.length() > 0:
-		movementState = "default"
+	match state:
+		PlayerState.NORMAL:
+			if movement.x > 0:
+				movementState = "move_right"
+			elif movement.x < 0:
+				movementState = "move_left"
+			elif movement.y > 0:
+				movementState = "move_down"
+			elif movement.y < 0:
+				movementState = "move_up"
+			else:
+				movementState = "Idle"
+		PlayerState.ATTACK:
+			if movement.x > 0:
+				movementState = "attack_right"
+			elif movement.x < 0:
+				movementState = "attack_left"
+			elif movement.y > 0:
+				movementState = "attack_down"
+			elif movement.y < 0:
+				movementState = "move_up"
+			else:
+				movementState = "attack_down"
 
 	# Só troca se for diferente!
 	if $PlayerSprite.animation != movementState:
@@ -66,11 +83,30 @@ func add_dominated(victim): # adiciona vitimas a array
 		victim.follow_target = self # se array estiver vazio, segue player
 	else:
 		victim.follow_target = dominated_victims[-1] # se tiver vitimas, segue a ultima
-	dominated_victims.append(victim) # adiciona a ultima posição da array
+	dominated_victims.append(victim) # adiciona à ultima posição da array
 	
 	print(dominated_victims.size())
 
 func _physics_process(delta: float) -> void:
+	if pause_timer > 0:
+		pause_timer -= delta
+	else:
+		if state == PlayerState.ATTACK:
+			state = PlayerState.NORMAL
+	
 	playerActions(delta)
 	
-	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name.begins_with("PinkVictim") and state == PlayerState.NORMAL:
+		state = PlayerState.ATTACK
+		#$PlayerSprite.animation = "attack_down" # ou outro dependendo da direção
+		#$PlayerSprite.play()
+		pause_timer = 1.0
+		
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name.begins_with("PinkVictim") and state == PlayerState.ATTACK:
+		state = PlayerState.ATTACK
