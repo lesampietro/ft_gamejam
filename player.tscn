@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://chrar0gdp3ss0" path="res://newplayer.tscn" id="4_sweqy"]
 [ext_resource type="PackedScene" uid="uid://diqke42v0uoky" path="res://pink_victim.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://vmar3pyvnyxc" path="res://packs/GroundTextures/SeamlessGroundTextures/grass-alternative-1.png" id="6_606se"]
-[ext_resource type="PackedScene" path="res://enemy.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://dp8k2cuomyf1j" path="res://enemy.tscn" id="7_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://6wrwogm4c730" path="res://bush.tscn" id="9_n7ghd"]
 [ext_resource type="Script" uid="uid://c6a2asxfpsya8" path="res://bush.gd" id="10_nvl01"]
 
@@ -3729,7 +3729,6 @@ shape = SubResource("RectangleShape2D_dw050")
 [node name="Map" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
-visible = false
 shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Map"]
