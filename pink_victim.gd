@@ -109,6 +109,14 @@ func victimActions(delta: float) -> void:
 	victimMove(delta)
 
 func _physics_process(delta: float) -> void:
+	# Atualiza o follow_target para manter a fila alinhada
+	if state == VictimState.DOMINATED and player.dominated_victims.size() > 0:
+		var idx = player.dominated_victims.find(self)
+		if idx == 0:
+			follow_target = player
+		elif idx > 0:
+			follow_target = player.dominated_victims[idx - 1]
+	
 	# atualiza pausa
 	if is_caught:
 		pause_timer -= delta
