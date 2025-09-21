@@ -625,6 +625,7 @@ text = "Score: 0"
 position = Vector2(3, 131)
 
 [node name="HealthBar2" parent="PlayerGUI" instance=ExtResource("7_ki1dg")]
+visible = false
 position = Vector2(424, 452)
 
 [node name="Area2D" type="Area2D" parent="."]
