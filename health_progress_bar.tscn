@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d3c6uhpsilcha"]
+[gd_scene load_steps=0 format=3 uid="uid://d3c6uhpsilcha"]
 
 [node name="HealthProgressBar" type="TextureProgressBar"]
 offset_right = 40.0

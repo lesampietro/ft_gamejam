@@ -1,0 +1,239 @@
+[gd_scene load_steps=20 format=3 uid="uid://d01c5f1hc6d6h"]
+
+[ext_resource type="Texture2D" uid="uid://cfrevy064uxjo" path="res://imgs/bg-abertura.png" id="1_4qvrg"]
+[ext_resource type="Script" uid="uid://c0hyoe02l8cny" path="res://opening.gd" id="1_gggm5"]
+[ext_resource type="Texture2D" uid="uid://dyf7n0aue5veb" path="res://imgs/comet.png" id="2_hsrnu"]
+[ext_resource type="Texture2D" uid="uid://bxo7matmwindm" path="res://imgs/Explosion Animation.png" id="3_ulneq"]
+
+[sub_resource type="Animation" id="Animation_gggm5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-154, -150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Comet:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ulneq"]
+resource_name = "opening"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.46401),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-154, -150), Vector2(850, 462)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Comet:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.46667, 3.57667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.0975, 0.0975), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FadeRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.52, 4.98),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.4, 3.47667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_psf0h"]
+_data = {
+&"RESET": SubResource("Animation_gggm5"),
+&"opening": SubResource("Animation_ulneq")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gggm5"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psf0h"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mha44"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vh34"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1ynq"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n13d8"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw8uy"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdt4t"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74jx4"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blsoy"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbkd8"]
+atlas = ExtResource("3_ulneq")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghaoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gggm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psf0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mha44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vh34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1ynq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n13d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw8uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdt4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74jx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blsoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbkd8")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[node name="OpeningScene" type="Node2D"]
+script = ExtResource("1_gggm5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1129.0
+offset_bottom = 594.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_4qvrg")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_psf0h")
+}
+autoplay = "opening"
+
+[node name="Comet" type="Sprite2D" parent="Control"]
+position = Vector2(-154, -150)
+texture = ExtResource("2_hsrnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(858, 471)
+sprite_frames = SubResource("SpriteFrames_ghaoo")
+animation = &"explosion"
+frame_progress = 0.431307
+
+[node name="FadeRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)

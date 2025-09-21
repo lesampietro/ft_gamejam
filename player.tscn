@@ -3727,7 +3727,6 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_dw050")
 
 [node name="Map" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
 visible = false
