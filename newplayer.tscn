@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dhv3gbmvnavw4" path="res://health_bar.tscn" id="7_ki1dg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4iqc"]
-radius = 41.0
-height = 88.0
+radius = 19.0
+height = 38.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_ki1dg")
@@ -328,12 +328,11 @@ position = Vector2(575, 325)
 motion_mode = 1
 script = ExtResource("1_c4iqc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_c4iqc")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." groups=["player"]]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"Idle"
 speed_scale = 2.0

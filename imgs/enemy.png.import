@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dgl0hq1gpwhqq"
-=======
-uid="uid://tjupkco4frqx"
->>>>>>> c6e7c58 (uploaded attacked victim sprite)
-path="res://.godot/imported/back-walk-sprite.png-6ac00c89e29a53433059dcc63d5f9341.ctex"
+uid="uid://dv71hjb8n6fv2"
+path="res://.godot/imported/enemy.png-3b549308f1d7f377fe9d84b342a6c137.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imgs/back-walk-sprite.png"
-dest_files=["res://.godot/imported/back-walk-sprite.png-6ac00c89e29a53433059dcc63d5f9341.ctex"]
+source_file="res://imgs/enemy.png"
+dest_files=["res://.godot/imported/enemy.png-3b549308f1d7f377fe9d84b342a6c137.ctex"]
 
 [params]
 
