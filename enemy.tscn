@@ -15,8 +15,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
-radius = 73.0
-height = 146.0
+radius = 53.0
+height = 116.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 236.0
@@ -35,6 +35,7 @@ speed_scale = 0.3
 shape = SubResource("CapsuleShape2D_qi2p4")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="VisionArea" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
 shape = SubResource("CircleShape2D_4gyqm")

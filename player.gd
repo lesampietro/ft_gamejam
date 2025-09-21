@@ -1,11 +1,16 @@
 extends CharacterBody2D
 @export var speed = 500
+@export var max_health = 10
 var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 @onready var health_bars = [$PlayerGUI/Control/HealthBar/ProgressBar, $PlayerGUI/HealthBar2/ProgressBar]
 var dominated_victims = []
 var trail_positions: Array = []
 var health = 10
+
+#knockback
+var knockback_velocity = Vector2.ZERO
+var knockback_decay = 800
 
 func start(pos):
 	position = pos
@@ -26,10 +31,8 @@ func check_keyboard_actions() -> Vector2:
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		health += 1
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-		health -= 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
@@ -68,7 +71,12 @@ func playerMove(delta: float) -> void:
 	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
 
 func playerActions(delta: float) -> void:
-	playerMove(delta)
+	if knockback_velocity.length() > 0:
+		velocity = knockback_velocity
+		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_decay * delta)
+		move_and_slide()
+	else:
+		playerMove(delta)
 
 func add_dominated(victim): # adiciona vitimas a array
 	if dominated_victims.size() == 0:
@@ -81,6 +89,10 @@ func add_dominated(victim): # adiciona vitimas a array
 
 func _physics_process(delta: float) -> void:
 	playerActions(delta)
-	print(health_bars[0].value)
 	update_health_bars()
 	
+func take_damage(damage_amount: int):
+	health -= damage_amount
+	health = max(health, 0)
+	update_health_bars()
+	print("Player tomou dano!")
