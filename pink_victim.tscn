@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc7fkddj4f4cs" path="res://pink_victim.gd" id="1_803xu"]
 [ext_resource type="Texture2D" uid="uid://c236cjj17s8ak" path="res://imgs/idle-victim-01.png" id="2_nyy5r"]
-[ext_resource type="Texture2D" uid="uid://ce5su404h7wks" path="res://imgs/victim-attacked-01.png" id="2_pjycn"]
+[ext_resource type="Texture2D" uid="uid://ck776ety5aidm" path="res://imgs/victim-attacked-01.png" id="2_pjycn"]
 [ext_resource type="Texture2D" uid="uid://72nw2wy3rlbt" path="res://packs/Retro Impact Effect Pack 5/Retro Impact Effect Pack 5 B.png" id="2_xbly0"]
 [ext_resource type="Texture2D" uid="uid://c5652bdqrug7o" path="res://imgs/idle-blob-01.png" id="5_tumf8"]
 [ext_resource type="Texture2D" uid="uid://dxjimhxakwlwk" path="res://imgs/front-walk-01.png" id="6_kxqug"]

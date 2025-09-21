@@ -27,6 +27,7 @@ func _ready() -> void:
 	add_to_group("player")
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
+	update_health_bars()
 
 func update_health_bars() -> void:
 	health_bars[0].value = health
@@ -100,3 +101,10 @@ func _physics_process(delta: float) -> void:
 			state = PlayerState.NORMAL
 
 	playerActions(delta)
+
+
+func take_damage(damage_amount: int):
+	health -= damage_amount
+	health = max(health, 0)
+	update_health_bars()
+	print("Player tomou dano!")

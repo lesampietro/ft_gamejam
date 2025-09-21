@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://d01c5f1hc6d6h"]
 
 [ext_resource type="Texture2D" uid="uid://cfrevy064uxjo" path="res://imgs/bg-abertura.png" id="1_4qvrg"]
-[ext_resource type="Script" uid="uid://c0hyoe02l8cny" path="res://opening.gd" id="1_gggm5"]
+[ext_resource type="Script" path="res://opening.gd" id="1_gggm5"]
 [ext_resource type="Texture2D" uid="uid://dyf7n0aue5veb" path="res://imgs/comet.png" id="2_hsrnu"]
 [ext_resource type="Texture2D" uid="uid://bxo7matmwindm" path="res://imgs/Explosion Animation.png" id="3_ulneq"]
 
