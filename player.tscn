@@ -3741,9 +3741,6 @@ tile_set = SubResource("TileSet_b26j0")
 [node name="TileMapLayer" type="TileMapLayer" parent="Map/TileMapLayer"]
 tile_set = SubResource("TileSet_op7ga")
 
-[node name="Player" parent="." instance=ExtResource("4_sweqy")]
-position = Vector2(179, 90)
-
 [node name="PinkVictim2" parent="." instance=ExtResource("5_2hs0m")]
 position = Vector2(-229, -185)
 
@@ -3817,3 +3814,6 @@ script = ExtResource("10_nvl01")
 
 [node name="Enemy" parent="." instance=ExtResource("7_1jxqw")]
 position = Vector2(451, -217)
+
+[node name="Player" parent="." instance=ExtResource("4_sweqy")]
+position = Vector2(179, 90)
