@@ -5,6 +5,8 @@ var screen_size: Vector2 # o tipo do retorno do screen size. x, y
 @onready var col_shape = $CollisionShape2D
 @onready var health_bars = [$PlayerGUI/Control/HealthBar/ProgressBar, $PlayerGUI/HealthBar2/ProgressBar]
 @onready var gameoverlayer = $"../GameOverLayer"
+@onready var scoreLabel = $PlayerGUI/Control/ScoreLabel
+@onready var moveSoundEffect = $MoveSoundEffect
 
 var dominated_victims = []
 var trail_positions: Array = []
@@ -28,7 +30,6 @@ func start(pos):
 
 func _ready() -> void:
 	add_to_group("player")
-	print(gameoverlayer.visible)
 	screen_size = get_viewport_rect().size # add size pq retorna o tamanho da tela
 	$PlayerSprite.play()
 	update_health_bars()
@@ -59,23 +60,32 @@ func playerMove(delta: float) -> void:
 	move_and_slide()
 
 	if movement.x != 0:
+		if !moveSoundEffect.playing:
+			moveSoundEffect.play()
 		if movement.x > 0:
 			movementState = "move_right"
 		else:
 			movementState = "move_left"
 	elif movement.y != 0:
+		if !moveSoundEffect.playing:
+			moveSoundEffect.play()
 		if movement.y > 0:
 			movementState = "move_down"
 		else:
 			movementState = "move_up"
 	elif movement.length() > 0:
 		movementState = "default"
+		moveSoundEffect.stop()
 
 	# Só troca se for diferente!
 	if $PlayerSprite.animation != movementState:
 		$PlayerSprite.animation = movementState
 		$PlayerSprite.play()
-
+	
+	#if movementState != "default":
+		#moveSoundEffect.play()
+	#else:
+		#moveSoundEffect.stop()
 	#var playerSize = 50
 	#global_position.x = clamp(global_position.x, 0, screen_size.x - playerSize)
 	#global_position.y = clamp(global_position.y, 0, screen_size.y - playerSize)
@@ -94,8 +104,8 @@ func add_dominated(victim): # adiciona vitimas a array
 	else:
 		victim.follow_target = dominated_victims[-1] # se tiver vitimas, segue a ultima
 	dominated_victims.append(victim) # adiciona a ultima posição da array
-
-	print(dominated_victims.size())
+	
+	scoreLabel.text = "Score: " + str(dominated_victims.size())
 
 func _physics_process(delta: float) -> void:
 	if (health == 0):
@@ -114,4 +124,3 @@ func take_damage(damage_amount: int):
 	health -= damage_amount
 	health = max(health, 0)
 	update_health_bars()
-	print("Player tomou dano!")
