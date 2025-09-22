@@ -10,6 +10,8 @@
   </p>
 </div>
 
+![Gameplay do Fluffy Invader](./gamejam.gif)
+
 <hr />
 
 <h2>📖 Sobre o jogo</h2>
