@@ -74,5 +74,12 @@
   Acesse <a href="https://luistakeo.itch.io/fluffy-invader" target="_blank"><strong>Fluffy Invader no itch.io</strong></a> e jogue diretamente pelo navegador.
 </p>
 
+
+<p align="center">
+  <img src="./player-for-read-me.gif" alt="Fluffy Invader" width="100">
+  <img src="./butt-for-read-me.gif" alt="Fluffy Invader" width="100">
+</p>
+
+
 <hr />
 
